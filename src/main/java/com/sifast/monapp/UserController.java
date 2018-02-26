@@ -24,21 +24,21 @@ public class UserController {
         return "users";
     }
 
-    @RequestMapping("/enregistrer")
+    @RequestMapping("/save")
     public String saveUser(User u, Model model) throws Exception {
-        metier.ajouterUser(u);
+        metier.addUser(u);
 
         return "redirect:/user/index";
     }
 
-    @RequestMapping(value = "/nouveauform", method = RequestMethod.GET)
+    @RequestMapping(value = "/addForm", method = RequestMethod.GET)
     public String home1() {
         return "users";
     }
 
-    @RequestMapping(value = "/suppuser/{idUser}")
-    public String supp(@PathVariable Long idUser, Model model) {
-        metier.supprimerUser(idUser);
+    @RequestMapping(value = "/deleteUser/{idUser}")
+    public String delete(@PathVariable Long idUser, Model model) {
+        metier.deleteUser(idUser);
         return "redirect:/user/index";
     }
 

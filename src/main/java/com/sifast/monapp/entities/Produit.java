@@ -27,7 +27,7 @@ public class Produit implements Serializable {
 
     private double prix;
 
-    private int quantité;
+    private int quantite;
 
     @ManyToOne
     @JoinColumn(name = "ID_CAT")
@@ -37,12 +37,12 @@ public class Produit implements Serializable {
         super();
     }
 
-    public Produit(String designation, String description, double prix, int quantité) {
+    public Produit(String designation, String description, double prix, int quantite) {
         super();
         this.designation = designation;
         this.description = description;
         this.prix = prix;
-        this.quantité = quantité;
+        this.quantite = quantite;
 
     }
 
@@ -70,12 +70,14 @@ public class Produit implements Serializable {
         this.prix = prix;
     }
 
-    public int getQuantité() {
-        return quantité;
+    public int getQuantite() {
+        return quantite;
     }
 
-    public void setQuantité(int quantité) {
-        this.quantité = quantité;
+    public void setQuantite(
+
+            int quantite) {
+        this.quantite = quantite;
     }
 
     public Long getIdProduit() {

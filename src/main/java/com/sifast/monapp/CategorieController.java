@@ -24,27 +24,34 @@ public class CategorieController {
         return "categorie";
     }
 
-    @RequestMapping(value = "/enregistrer", method = RequestMethod.GET)
+    @RequestMapping(value = "/save")
     public String saveCat(Categorie c, Model model) throws Exception {
+        if (c.getIdCategorie() != null) {
+            metier.updateCategorie(c);
 
-        metier.ajouterCategorie(c);
+        } else {
+            metier.addCategorie(c);
+
+        }
 
         return "redirect:/cat/index";
     }
 
-    @RequestMapping(value = "/nouveauform", method = RequestMethod.GET)
-    public String home1() {
+    @RequestMapping(value = "/addForm", method = RequestMethod.GET)
+    public String addForm(Model model) {
+        model.addAttribute("categorie", new Categorie());
+
         return "categorie";
     }
 
-    @RequestMapping(value = "/suppcat/{idCat}")
+    @RequestMapping(value = "/deleteCat/{idCat}")
     public String supp(@PathVariable Long idCat, Model model) {
-        metier.supprimerCategrorie(idCat);
+        metier.deleteCategorie(idCat);
         return "redirect:/cat/index";
     }
 
     @RequestMapping(value = "/editCat/{idCat}", method = RequestMethod.GET)
-    public String editCat(@PathVariable Long idCat, Model model) throws Exception {
+    public String updateCat(@PathVariable Long idCat, Model model) throws Exception {
         Categorie c = metier.getCategorie(idCat);
         model.addAttribute("categorie", c);
         model.addAttribute("categories", metier.listCategories());

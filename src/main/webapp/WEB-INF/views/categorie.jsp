@@ -1,7 +1,11 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="f"%>
 <div id="formCat">
-<f:form modelAttribute="categorie" action="enregistrer" method ="get">
+<f:form modelAttribute="categorie" action="/monapp/cat/save" method ="get">
+   
+  <!--  id de la Categorie:<br> -->
+  <f:input path="idCategorie" type="hidden"/><br>
+  
   
   Nom de la Categorie:<br>
   <f:input path="nomCategorie"/><br>
@@ -11,8 +15,7 @@
   
   <input type="submit" value="Submit">
 </f:form>
-<%-- <a href="<c:url value="/j_spring_security_logout" />" >
-Logout</a> --%>
+ <%-- <a href="<c:url value="/j_spring_security_logout"/>">Logout</a>  --%>
 </div>
 <table>
 <tr>
@@ -23,7 +26,7 @@ Logout</a> --%>
 <td>${cat.getIdCategorie()}</td>
 <td>${cat.getNomCategorie()}</td>
 <td>${cat.getDescription()}</td>
-<td><a href="suppcat/${cat.getIdCategorie()}">Supprimer</a></td>
+<td><a href="deleteCat/${cat.getIdCategorie()}">Supprimer</a></td>
  <td><a href="editCat/${cat.getIdCategorie()}">Edit</a></td> 
  <%-- <td><a href="editCat?idCat=${cat.idCategorie}">Edit</a></ --%>
  </tr>

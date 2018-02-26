@@ -9,33 +9,33 @@ import com.sifast.monapp.entities.User;
 
 public interface IGestionDao {
 
-    public Long ajouterCategorie(Categorie c);
+    public Long addCategorie(Categorie c);
 
     public List<Categorie> listCategories();
 
     public Categorie getCategorie(Long idCat);
 
-    public void supprimerCategrorie(Long idcat);
+    public void deleteCategrorie(Long idcat);
 
-    public void modifierCategorie(Categorie c);
+    public void updateCategorie(Categorie c);
 
-    public Long ajouterProduit(Produit p, Long idCat);
+    public Long addProd(Produit p, Long idCat);
 
     public List<Produit> listproduits();
 
-    public Produit getProduit(Long idP);
+    public Produit getProd(Long idP);
 
-    public void supprimerProduit(Long idP);
+    public void deleteProd(Long idP);
 
-    public void modifierProduit(Produit p);
+    public void updateProd(Produit p);
 
-    public void ajouterUser(User u);
+    public void addUser(User u);
 
     public User getUser(Long idUser);
 
-    public void supprimerUser(Long idUser);
+    public void deleteUser(Long idUser);
 
-    public void modifierUser(User u);
+    public void updateUser(User u);
 
     public List<User> listUser();
 

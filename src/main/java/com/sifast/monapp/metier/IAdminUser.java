@@ -7,13 +7,13 @@ import com.sifast.monapp.entities.User;
 
 public interface IAdminUser extends IAdminCategoriesMetier {
 
-    public void ajouterUser(User u);
+    public void addUser(User u);
 
     public User getUser(Long idUser);
 
-    public void supprimerUser(Long idUser);
+    public void deleteUser(Long idUser);
 
-    public void modifierUser(User u);
+    public void updateUser(User u);
 
     public List<User> listUser();
 

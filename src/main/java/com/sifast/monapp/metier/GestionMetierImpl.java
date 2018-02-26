@@ -24,18 +24,18 @@ public class GestionMetierImpl implements IAdminUser {
     }
 
     @Override
-    public Long ajouterProduit(Produit p, Long idCat) {
-        return gestionDao.ajouterProduit(p, idCat);
+    public Long addProd(Produit p, Long idCat) {
+        return gestionDao.addProd(p, idCat);
     }
 
     @Override
-    public void supprimerProduit(Long idP) {
-        gestionDao.supprimerProduit(idP);
+    public void deleteProd(Long idP) {
+        gestionDao.deleteProd(idP);
     }
 
     @Override
-    public void modifierProduit(Produit p) {
-        gestionDao.modifierProduit(p);
+    public void updateProd(Produit p) {
+        gestionDao.updateProd(p);
     }
 
     @Override
@@ -55,27 +55,27 @@ public class GestionMetierImpl implements IAdminUser {
 
     @Override
     public Produit getProduit(Long idP) {
-        return gestionDao.getProduit(idP);
+        return gestionDao.getProd(idP);
     }
 
     @Override
-    public Long ajouterCategorie(Categorie c) {
-        return gestionDao.ajouterCategorie(c);
+    public Long addCategorie(Categorie c) {
+        return gestionDao.addCategorie(c);
     }
 
     @Override
-    public void supprimerCategrorie(Long idcat) {
-        gestionDao.supprimerCategrorie(idcat);
+    public void deleteCategorie(Long idcat) {
+        gestionDao.deleteCategrorie(idcat);
     }
 
     @Override
-    public void modifierCategorie(Categorie c) {
-        gestionDao.modifierCategorie(c);
+    public void updateCategorie(Categorie c) {
+        gestionDao.updateCategorie(c);
     }
 
     @Override
-    public void ajouterUser(User u) {
-        gestionDao.ajouterUser(u);
+    public void addUser(User u) {
+        gestionDao.addUser(u);
     }
 
     @Override
@@ -89,13 +89,13 @@ public class GestionMetierImpl implements IAdminUser {
     }
 
     @Override
-    public void supprimerUser(Long idUser) {
-        gestionDao.supprimerUser(idUser);
+    public void deleteUser(Long idUser) {
+        gestionDao.deleteUser(idUser);
     }
 
     @Override
-    public void modifierUser(User u) {
-        gestionDao.modifierUser(u);
+    public void updateUser(User u) {
+        gestionDao.updateUser(u);
     }
 
     @Override

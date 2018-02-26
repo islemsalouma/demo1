@@ -4,10 +4,10 @@ import com.sifast.monapp.entities.Categorie;
 
 public interface IAdminCategoriesMetier extends IAdminProduitMetier {
 
-    public Long ajouterCategorie(Categorie c);
+    public Long addCategorie(Categorie c);
 
-    public void supprimerCategrorie(Long idcat);
+    public void deleteCategorie(Long idcat);
 
-    public void modifierCategorie(Categorie c);
+    public void updateCategorie(Categorie c);
 
 }

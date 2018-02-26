@@ -14,7 +14,7 @@ import com.sifast.monapp.entities.Categorie;
 import com.sifast.monapp.metier.IAdminCategoriesMetier;
 
 @RestController
-@RequestMapping(value = "/restcat")
+@RequestMapping(value = "/restCat")
 public class RestControllerCategorie {
 
     @Autowired
@@ -32,22 +32,22 @@ public class RestControllerCategorie {
         return categorie;
     }
 
-    @RequestMapping(value = "/suppcat/{idCat}", method = RequestMethod.DELETE)
+    @RequestMapping(value = "/deleteCat/{idCat}", method = RequestMethod.DELETE)
     public void supp(@PathVariable Long idCat, Model model) {
-        metier.supprimerCategrorie(idCat);
+        metier.deleteCategorie(idCat);
 
     }
 
-    @RequestMapping(value = "/enregistrer", method = RequestMethod.POST)
+    @RequestMapping(value = "/save", method = RequestMethod.POST)
     public void saveCat(@RequestBody Categorie c) throws Exception {
 
-        metier.ajouterCategorie(c);
+        metier.addCategorie(c);
     }
 
-    @RequestMapping(value = "/modifier", method = RequestMethod.PUT)
+    @RequestMapping(value = "/update", method = RequestMethod.PUT)
     public void modifierCat(@RequestBody Categorie c) throws Exception {
 
-        metier.modifierCategorie(c);
+        metier.updateCategorie(c);
 
     }
 

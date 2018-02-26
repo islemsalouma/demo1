@@ -21,7 +21,7 @@ public class GestionDaoImpl implements IGestionDao {
     private EntityManager em;
 
     @Override
-    public Long ajouterCategorie(Categorie c) {
+    public Long addCategorie(Categorie c) {
 
         em.persist(c);
         return c.getIdCategorie();
@@ -39,18 +39,18 @@ public class GestionDaoImpl implements IGestionDao {
     }
 
     @Override
-    public void supprimerCategrorie(Long idcat) {
+    public void deleteCategrorie(Long idcat) {
         Categorie c = em.find(Categorie.class, idcat);
         em.remove(c);
     }
 
     @Override
-    public void modifierCategorie(Categorie c) {
+    public void updateCategorie(Categorie c) {
         em.merge(c);
     }
 
     @Override
-    public Long ajouterProduit(Produit p, Long idCat) {
+    public Long addProd(Produit p, Long idCat) {
         Categorie c = getCategorie(idCat);
         p.setCategorie(c);
         em.persist(p);
@@ -64,18 +64,18 @@ public class GestionDaoImpl implements IGestionDao {
     }
 
     @Override
-    public Produit getProduit(Long idP) {
+    public Produit getProd(Long idP) {
         return em.find(Produit.class, idP);
     }
 
     @Override
-    public void supprimerProduit(Long idP) {
-        Produit p = getProduit(idP);
+    public void deleteProd(Long idP) {
+        Produit p = getProd(idP);
         em.remove(p);
     }
 
     @Override
-    public void modifierProduit(Produit p) {
+    public void updateProd(Produit p) {
         em.merge(p);
     }
 
@@ -87,7 +87,7 @@ public class GestionDaoImpl implements IGestionDao {
     }
 
     @Override
-    public void ajouterUser(User u) {
+    public void addUser(User u) {
         em.persist(u);
     }
 
@@ -97,13 +97,13 @@ public class GestionDaoImpl implements IGestionDao {
     }
 
     @Override
-    public void supprimerUser(Long idUser) {
+    public void deleteUser(Long idUser) {
         User u = getUser(idUser);
         em.remove(u);
     }
 
     @Override
-    public void modifierUser(User u) {
+    public void updateUser(User u) {
         em.merge(u);
 
     }
