@@ -70,7 +70,7 @@ public class GestionDaoImpl implements IGestionDao {
 
     @Override
     public void deleteProd(Long idP) {
-        Produit p = getProd(idP);
+        Produit p = em.find(Produit.class, idP);
         em.remove(p);
     }
 

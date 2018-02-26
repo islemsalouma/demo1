@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.sifast.monapp.entities.Categorie;
 import com.sifast.monapp.metier.IAdminCategoriesMetier;
 
+//@Api(tags = "CategorieController")
 @RestController
 @RequestMapping(value = "/restCat")
 public class RestControllerCategorie {
@@ -20,13 +21,15 @@ public class RestControllerCategorie {
     @Autowired
     IAdminCategoriesMetier metier;
 
+    // @ApiOperation(value = "liste des categories")
     @RequestMapping(value = "/index", method = RequestMethod.GET)
     public Collection<Categorie> index() {
         Collection<Categorie> categories = metier.listCategories();
         return categories;
     }
 
-    @RequestMapping(value = "/{idCat}", method = RequestMethod.GET)
+    // @ApiOperation(value = "")
+    @RequestMapping(value = "/{idCat}", method = RequestMethod.GET, produces = "application/json")
     public Categorie findOne(@PathVariable("idCat") Long idCat) {
         Categorie categorie = metier.getCategorie(idCat);
         return categorie;
@@ -38,6 +41,7 @@ public class RestControllerCategorie {
 
     }
 
+    // @ApiOperation(value = "ajouter nouvelle categorie")
     @RequestMapping(value = "/save", method = RequestMethod.POST)
     public void saveCat(@RequestBody Categorie c) throws Exception {
 

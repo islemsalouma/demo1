@@ -74,9 +74,7 @@ public class Produit implements Serializable {
         return quantite;
     }
 
-    public void setQuantite(
-
-            int quantite) {
+    public void setQuantite(int quantite) {
         this.quantite = quantite;
     }
 

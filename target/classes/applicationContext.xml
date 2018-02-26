@@ -38,16 +38,21 @@
  
    <s:http use-expressions="true" auto-config="true">
 		<s:intercept-url pattern="/cat/**" access="hasRole('ROLE_ADMIN_CAT')"/>
-		<s:form-login login-page="/login" default-target-url = "/cat/nouveauform" authentication-failure-url="/login"/>
+		<s:intercept-url pattern="/prod/**" access="hasRole('ROLE_ADMIN_PROD')"/>
+		
+		<s:form-login login-page="/login" default-target-url = "/cat/addForm" authentication-failure-url="/login"/>
+		<s:form-login login-page="/login" default-target-url = "/prod/addForm" authentication-failure-url="/login"/>
 	</s:http>
 	<s:authentication-manager>
 		<s:authentication-provider>
 			<!-- <s:password-encoder hash="md5"></s:password-encoder>
 			<s:jdbc-user-service data-source-ref="datasource" users-by-username-query="select userName, passwrd, actived from users where userName=?"
 			 authorities-by-username-query="select r.roleName, r.idRole from Role r, users u where u.user_id = r.user_id and u.userName =?"/>
-			  -->
-  <s:user-service>
+			   -->
+ <s:user-service>
 <s:user name="islem" password="123" authorities="ROLE_ADMIN_CAT"/>
+<s:user name="wacef" password="123" authorities="ROLE_ADMIN_PROD"/>
+
 </s:user-service> 
 		</s:authentication-provider>
 	</s:authentication-manager> 

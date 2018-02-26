@@ -26,13 +26,19 @@ public class UserController {
 
     @RequestMapping("/save")
     public String saveUser(User u, Model model) throws Exception {
-        metier.addUser(u);
+        if (u.getIdUser() == null) {
+            metier.addUser(u);
+        } else {
+            metier.updateUser(u);
+        }
 
         return "redirect:/user/index";
     }
 
     @RequestMapping(value = "/addForm", method = RequestMethod.GET)
-    public String home1() {
+    public String addFom(Model model) {
+        model.addAttribute("user", new User());
+
         return "users";
     }
 
@@ -40,6 +46,14 @@ public class UserController {
     public String delete(@PathVariable Long idUser, Model model) {
         metier.deleteUser(idUser);
         return "redirect:/user/index";
+    }
+
+    @RequestMapping(value = "/editUser/{idUser}", method = RequestMethod.GET)
+    public String updateCat(@PathVariable Long idUser, Model model) throws Exception {
+        User u = metier.getUser(idUser);
+        model.addAttribute("user", u);
+        model.addAttribute("users", metier.listUser());
+        return "user";
     }
 
 }
