@@ -3,7 +3,6 @@ package com.sifast.monapp.entities;
 import java.io.Serializable;
 import java.util.Collection;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -27,7 +26,7 @@ public class Categorie implements Serializable {
 
     private String description;
 
-    @OneToMany(mappedBy = "categorie", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "categorie", fetch = FetchType.EAGER)
     private Collection<Produit> produits;
 
     public Categorie() {

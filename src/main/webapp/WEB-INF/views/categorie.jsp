@@ -17,8 +17,17 @@
 
 		<input type="submit" value="Submit">
 	</f:form>
-	<%-- <a href="<c:url value="/j_spring_security_logout"/>">Logout</a>  --%>
 </div>
+<%-- 	<a href="<c:url value='/j_spring_security_logout'/>">Logout</a> 
+ --%>
+ 
+ <c:url var="logoutUrl" value="/logout"/>
+<form action="${logoutUrl}" method="post">
+    <input type="submit" value="Logout"/>
+    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+</form>
+
+
 <table>
 	<tr>
 		<th>ID</th>

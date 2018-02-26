@@ -4,7 +4,7 @@
 
 	<f:form modelAttribute="produit" action="/monapp/prod/save" method="get">
 	<!--  id du produite:<br> -->
-		<f:input path="idProduit" type="hidden" />
+  <f:input path="idProduit" type="hidden" />
 	
   Designation<br>
   <f:input path="designation"/><br>
@@ -25,6 +25,11 @@ itemValue="idCategorie" itemLabel="nomCategorie"></f:select>
   <input type="submit" value="Submit">
 </f:form>
 
+<c:url var="logoutUrl" value="/logout"/>
+<form action="${logoutUrl}" method="post">
+    <input type="submit" value="Logout"/>
+    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+</form>
 
 
 <table>

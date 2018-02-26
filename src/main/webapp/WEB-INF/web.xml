@@ -39,5 +39,8 @@
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
 
-	
+	 <error-page>
+		<error-code>403</error-code>
+		<location>/login</location>
+	</error-page>
 </web-app>
